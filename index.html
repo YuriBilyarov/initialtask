@@ -15,25 +15,20 @@
     <h1>After School Club</h1>
 
     <div id="app">
-        <!-- start app div -->
-        <div>
-            <!-- lesson information -->
-            <img v-bind:src="lesson.image" height="150">
-            <h2>{{ lesson.subject}}</h1>
-                <p>Number of spaces:{{lesson.availableInventory - cartItemCount}}</p>
-                <p>Location: {{lesson.location}}</p>
-                <p>Price: {{lesson.price}}</p>
+    <!-- start app div -->
+        <!-- lesson information -->
+        <img v-bind:src="lesson.image" height="150">
+        <h2>{{ lesson.subject}}</h1>
+            <p>Number of spaces:{{lesson.availableInventory - cartItemCount}}</p>
+            <p>Location: {{lesson.location}}</p>
+            <p>Price: {{lesson.price}}</p>
 
-                <button v-on:click="addToCart" v-if="canAddToCart">
-                    Add to cart
-                </button>
-                <button disabled='disabled' v-else>
-                    Add to cart
-                </button>
-
-        </div>
-
-
+            <button v-on:click="addToCart" v-if="canAddToCart">
+                Add to cart
+            </button>
+            <button disabled='disabled' v-else>
+                Add to cart
+            </button>
     </div> <!-- Stop app div -->
 
     <script>
@@ -56,7 +51,6 @@
                 addToCart: function () {
                     this.lesson.availableInventory - 1;
                     this.cart.push(this.lesson.id);
-
                 },
             },
             computed: {
