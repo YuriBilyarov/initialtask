@@ -23,12 +23,7 @@
             <p>Location: {{lesson.location}}</p>
             <p>Price: {{lesson.price}}</p>
 
-            <button v-on:click="addToCart" v-if="canAddToCart">
-                Add to cart
-            </button>
-            <button disabled='disabled' v-else>
-                Add to cart
-            </button>
+            <button @click="addToCart" v-bind:disabled="!canAddToCart">Add to cart</button>
     </div> <!-- Stop app div -->
 
     <script>
