@@ -17,15 +17,19 @@
         <div>
             <img v-bind:src="lesson.image" height="150">
             <h2>{{ lesson.subject}}</h1>
+                <p>Number of spaces:{{lesson.availableInventory - cartItemCount}}</p>
                 <p>Location: {{lesson.location}}</p>
                 <p>Price: {{lesson.price}}</p>
 
-                <button v-on:click="addToCart">
+                <button v-on:click="addToCart" v-if="canAddToCart">
+                    Add to cart
+                </button>
+                <button disabled='disabled' v-else>
                     Add to cart
                 </button>
 
         </div>
-    </div>
+    </div> 
 
     <script>
 
@@ -41,6 +45,22 @@
                     image: "math.png",
                     availableInventory: 5
                 },
+                cart: []
+            },
+            methods: {
+                addToCart: function () {
+                    this.lesson.availableInventory - 1;
+                    this.cart.push(this.lesson.id);
+
+                },
+            },
+            computed: {
+                cartItemCount: function () {
+                    return this.cart.length || '';
+                },
+                canAddToCart: function () {
+                    return this.lesson.availableInventory > this.cartItemCount;
+                }
             },
         });
 
