@@ -14,17 +14,36 @@
     <h1>After School Club</h1>
 
     <div id="app">
-        <img ßheight="150">
-        <h2>{{ lesson.subject}}</h1>
-            <p>Location: {{lesson.location}}</p>
-            <p>Price: {{lesson.price}}</p>
+        <div>
+            <img v-bind:src="lesson.image" height="150">
+            <h2>{{ lesson.subject}}</h1>
+                <p>Location: {{lesson.location}}</p>
+                <p>Price: {{lesson.price}}</p>
 
-            <button v-on:click="addToCart"ß>
-                Add to cart
-            </button>
+                <button v-on:click="addToCart">
+                    Add to cart
+                </button>
+
+        </div>
     </div>
 
     <script>
+
+        let app = new Vue({
+
+            el: '#app',
+            data: {
+                lesson: {
+                    id: 200,
+                    subject: "Math",
+                    location: "London",
+                    price: 100,
+                    image: "math.png",
+                    availableInventory: 5
+                },
+            },
+        });
+
     </script>
 
 </body>
