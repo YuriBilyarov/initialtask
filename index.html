@@ -1,3 +1,7 @@
+<!-- 
+     Group 1
+     https://github.com/YuriBilyarov/YuriBilyarov.github.io 
+    -->
 <!DOCTYPE html>
 <html>
 
@@ -15,10 +19,10 @@
     <h1>After School Club</h1>
 
     <div id="app">
-    <!-- start app div -->
+        <!-- start app div -->
         <!-- lesson information -->
         <img v-bind:src="lesson.image" height="150">
-        <h2>{{ lesson.subject}}</h1>
+        <h2>{{lesson.subject}}</h1>
             <p>Number of spaces:{{lesson.availableInventory - cartItemCount}}</p>
             <p>Location: {{lesson.location}}</p>
             <p>Price: {{lesson.price}}</p>
@@ -44,7 +48,6 @@
             },
             methods: {
                 addToCart: function () {
-                    this.lesson.availableInventory - 1;
                     this.cart.push(this.lesson.id);
                 },
             },
@@ -57,7 +60,7 @@
                 }
             },
         });
-        
+
     </script>
 
 </body>
